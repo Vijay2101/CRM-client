@@ -21,7 +21,7 @@ function AddCustomers() {
   const submitCustomers = async () => {
     try {
       const payload = customers.map(c => ({ ...c, addedBy: user.email }));
-      const res = await axios.post('http://localhost:5000/customers', payload, {
+      const res = await axios.post('https://crm-backend-five-beryl.vercel.app/customers', payload, {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       setMessage(res.data.message);
@@ -39,7 +39,7 @@ function AddCustomers() {
     formData.append('addedBy', user.email);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/upload-csv', formData, {
+      const res = await axios.post('https://crm-backend-five-beryl.vercel.app/api/upload-csv', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setMessage(`${res.data.message} | Added: ${res.data.added} | Skipped: ${res.data.skipped}`);
