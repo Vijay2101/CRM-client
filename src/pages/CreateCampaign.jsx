@@ -25,7 +25,7 @@ export default function CreateCampaign() {
       alert("User email not found. Please login.");
       return;
     }
-    const res = await axios.post("http://localhost:5000/campaigns/preview", { rules, logic, addedBy: userEmail });
+    const res = await axios.post("https://crm-backend-five-beryl.vercel.app/campaigns/preview", { rules, logic, addedBy: userEmail });
     setAudienceSize(res.data.audienceSize);
   };
 
@@ -34,7 +34,7 @@ export default function CreateCampaign() {
       alert("User email not found. Please login.");
       return;
     }
-    await axios.post("http://localhost:5000/campaigns", { name, rules, logic, addedBy: userEmail });
+    await axios.post("https://crm-backend-five-beryl.vercel.app/campaigns", { name, rules, logic, addedBy: userEmail });
     alert("Campaign saved");
     window.location.href = "/campaigns";
   };
