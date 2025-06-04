@@ -13,7 +13,7 @@ export default function CampaignHistory() {
     return;
   }
 
-  axios.get(`http://localhost:5000/campaigns?email=${encodeURIComponent(userEmail)}`)
+  axios.get(`https://crm-backend-five-beryl.vercel.app/campaigns?email=${encodeURIComponent(userEmail)}`)
     .then(res => setCampaigns(res.data))
     .catch(err => console.error(err));
 }, []);
