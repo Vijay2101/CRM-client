@@ -17,7 +17,7 @@ const Login = () => {
   const login = useGoogleLogin({
     onSuccess: async (codeResponse) => {
       try {
-        const res = await axios.post("http://localhost:5000/auth/google", {
+        const res = await axios.post("https://crm-backend-five-beryl.vercel.app/auth/google", {
           code: codeResponse.code,
         });
         localStorage.setItem("user", JSON.stringify(res.data));
