@@ -13,7 +13,7 @@ export default function CampaignDeliveryLogs() {
     if (!userEmail) return;
 
     axios
-      .get(`http://localhost:5000/campaigns?email=${userEmail}`)
+      .get(`https://crm-backend-five-beryl.vercel.app/campaigns?email=${userEmail}`)
       .then((res) => setCampaigns(res.data))
       .catch((err) => console.error(err));
   }, [userEmail]);
@@ -26,7 +26,7 @@ export default function CampaignDeliveryLogs() {
 
     if (!logsByCampaign[campaignId]) {
       try {
-        const res = await axios.get(`http://localhost:5000/campaigns/${campaignId}/logs`);
+        const res = await axios.get(`https://crm-backend-five-beryl.vercel.app/campaigns/${campaignId}/logs`);
         setLogsByCampaign((prev) => ({ ...prev, [campaignId]: res.data }));
       } catch (err) {
         console.error("Log fetch failed:", err);
